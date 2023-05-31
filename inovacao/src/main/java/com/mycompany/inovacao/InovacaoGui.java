@@ -124,7 +124,7 @@ public class InovacaoGui extends javax.swing.JFrame {
     private void btnInnovationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInnovationActionPerformed
         // TODO add your handling code here:
 
-        String diretorio = "/home/root/Downloads/Teste_arquivos"; // Substitua pelo diretório desejado
+        String diretorio = "/root/Downloads/Teste_arquivos"; // Substitua pelo diretório desejado
         CleanerLocal cleaner = new CleanerLocal();
 
         File[] arquivos = new File(diretorio).listFiles();
