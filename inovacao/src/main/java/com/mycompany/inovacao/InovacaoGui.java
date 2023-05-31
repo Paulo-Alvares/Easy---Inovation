@@ -4,6 +4,8 @@
  */
 package com.mycompany.inovacao;
 
+import java.io.File;
+
 /**
  *
  * @author diegovieira
@@ -26,22 +28,124 @@ public class InovacaoGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        label_logo2 = new javax.swing.JLabel();
+        label_email3 = new javax.swing.JLabel();
+        btnInnovation = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(300, 400));
+        setPreferredSize(new java.awt.Dimension(400, 500));
+
+        jPanel2.setBackground(new java.awt.Color(25, 25, 25));
+        jPanel2.setForeground(new java.awt.Color(25, 25, 25));
+        jPanel2.setPreferredSize(new java.awt.Dimension(400, 500));
+
+        label_email3.setFont(new java.awt.Font("FreeSans", 2, 14)); // NOI18N
+        label_email3.setForeground(new java.awt.Color(255, 255, 255));
+        label_email3.setText("caso o computador esteja lento, aperte o botao");
+
+        btnInnovation.setBackground(new java.awt.Color(255, 255, 255));
+        btnInnovation.setFont(new java.awt.Font("FreeSans", 1, 15)); // NOI18N
+        btnInnovation.setForeground(new java.awt.Color(0, 0, 0));
+        btnInnovation.setText("Limpar Máquina");
+        btnInnovation.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnInnovation.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInnovation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInnovationActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(label_logo2))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(btnInnovation, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 80, Short.MAX_VALUE)
+                        .addComponent(label_email3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(label_logo2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addComponent(label_email3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnInnovation, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190))
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/inovacao/logo-light (2).png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel1)
+                .addContainerGap(131, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jLabel1)
+                .addContainerGap(409, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInnovationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInnovationActionPerformed
+        // TODO add your handling code here:
+
+        String diretorio = "/home/root/Downloads/Teste_arquivos"; // Substitua pelo diretório desejado
+        CleanerLocal cleaner = new CleanerLocal();
+
+        File[] arquivos = new File(diretorio).listFiles();
+        if (arquivos != null) {
+            for (File arquivo : arquivos) {
+                //if (cleaner.isInativo(arquivo.toPath())) {
+                    if (cleaner.fazerBackup(arquivo)) {
+                        if (arquivo.delete()) {
+                            System.out.println("Arquivo " + arquivo.getName() + " excluído.");
+                        } else {
+                            System.out.println("Erro ao excluir arquivo " + arquivo.getName());
+                        }
+                    } else {
+                        System.out.println("Erro ao fazer backup do arquivo " + arquivo.getName());
+                    }
+                //} else {
+                //    System.out.println(arquivo.getName() + " é recente.");
+                //}
+            }
+        }
+    }//GEN-LAST:event_btnInnovationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +183,10 @@ public class InovacaoGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInnovation;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel label_email3;
+    private javax.swing.JLabel label_logo2;
     // End of variables declaration//GEN-END:variables
 }

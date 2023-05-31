@@ -16,7 +16,7 @@ public class CleanerLocal {
         File[] arquivos = new File(diretorio).listFiles();
         if (arquivos != null) {
             for (File arquivo : arquivos) {
-                //if (isInativo(arquivo.toPath())) {
+//                if (isInativo(arquivo.toPath())) {
                     if (fazerBackup(arquivo)) {
                         if (arquivo.delete()) {
                             System.out.println("Arquivo " + arquivo.getName() + " excluído.");
@@ -26,14 +26,14 @@ public class CleanerLocal {
                     } else {
                         System.out.println("Erro ao fazer backup do arquivo " + arquivo.getName());
                     }
-                //} else {
-                //    System.out.println(arquivo.getName() + " é recente.");
-                //}
+//                } else {
+//                    System.out.println(arquivo.getName() + " é recente.");
+//                }
             }
         }
     }
 
-    private static boolean isInativo(Path path) {
+    public static boolean isInativo(Path path) {
         try {
             BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
             Instant lastModifiedTime = attributes.lastModifiedTime().toInstant();
@@ -47,7 +47,7 @@ public class CleanerLocal {
         }
     }
 
-    private static boolean fazerBackup(File arquivo) {
+    public static boolean fazerBackup(File arquivo) {
         String diretorioBackup = System.getProperty("user.home") + "/Desktop/Backup"; // Pasta de backup no desktop
 
         File pastaBackup = new File(diretorioBackup);
