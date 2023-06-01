@@ -17,7 +17,7 @@ import java.time.Instant;
 public class AzureBlobStorageUploader {
     private static final String CONNECTION_STRING = "DefaultEndpointsProtocol=https;"
             + "AccountName=easyinnovation;"
-            + "AccountKey=NPsUSkgmMcyngkAlFz4JpY7MMQnvbiWfMtuyA9NYoLuMhJozxZ75rPPWOYQREVwI8LK2KcWRD9Oz+AStIrUckg==;"
+            + "AccountKey=;"
             + "EndpointSuffix=core.windows.net";
     private static final String CONTAINER_NAME = "easy-innovation";
 

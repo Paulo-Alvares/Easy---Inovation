@@ -16,8 +16,8 @@ import java.util.Collections;
 
 public class GoogleDriverUploader {
     private static final String APPLICATION_NAME = "easy-innovation";
-    private static final String CREDENTIALS_FILE_PATH = "/home/diegovieira/Downloads/easy-innovation-388217-4d39b40ef173.json";
-    private static final String FOLDER_ID = "12hKHJyURISdsbtla3ipe4eJNcbfGceHD"; // Substitua pelo ID da pasta desejada
+    private static final String CREDENTIALS_FILE_PATH = "";
+    private static final String FOLDER_ID = ""; // Substitua pelo ID da pasta desejada
 
     public static void main(String[] args) throws IOException, GeneralSecurityException {
         String diretorio = "/home/diegovieira/Downloads/Teste_arquivos"; // Substitua pelo diretório desejado
